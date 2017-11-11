@@ -1,16 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
+import { Circle, Rectangle, Square } from '../../shared/models/Shapes';
+
+
+type ComputationType = 'Area' | 'Perimeter';
+type Shapes = 'Circle' | 'Rectangle' | 'Square';
 
 @Component({
     templateUrl: './shapes-list.component.html',
     styleUrls: ['./shapes-list.component.scss']
 })
 export class ShapesListComponent implements OnInit {
-    public computationsTypes: string[] = ['Area', 'Perimeter'];
-    public shapes: string[] = ['Circle', 'Rectangle', 'Square'];
+    public computationsTypes: ComputationType[] = ['Area', 'Perimeter'];
+    public shapes: string[] = [Circle.getName, Rectangle.getName, Square.getName];
 
-    private _computationType: string;
+    private _computationType: ComputationType;
     private _shape: string;
 
     constructor (
@@ -19,7 +24,7 @@ export class ShapesListComponent implements OnInit {
 
     ngOnInit () { }
 
-    public set computationType (value: string) {
+    public set computationType (value: ComputationType) {
         this._computationType = value;
         this.goToShapeDetails();
     }

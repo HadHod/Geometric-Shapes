@@ -12,7 +12,7 @@ export class ShapesDetailsComponent implements OnInit {
     public shapeObject: IShape;
     public computationType: string;
     public shape: string;
-    public result: number = 0;
+    public result: number;
 
     constructor (
         private _route: ActivatedRoute
@@ -28,33 +28,25 @@ export class ShapesDetailsComponent implements OnInit {
     }
 
     public inputEvent (value1: number, value2?: number) {
-        console.log(value1, value2);
+        this.result = null;
 
         if (!value1) {
             return;
         }
 
-        if (this.shape === Circle.getName) {
-            this.shapeObject = new Circle(value1);
-        }
-
-        if (this.shape === Rectangle.getName && value2) {
-            this.shapeObject = new Rectangle(value1, value2);
-        }
-
-        if (this.shape === Square.getName) {
-            this.shapeObject = new Square(value1);
+        switch (this.shape) {
+            case Circle.getName: this.shapeObject = new Circle(value1); break;
+            case Rectangle.getName: this.shapeObject = new Rectangle(value1, value2); break;
+            case Square.getName: this.shapeObject = new Square(value1); break;
         }
 
         if (!this.shapeObject) {
-            this.result = null;
             return;
         }
 
         switch (this.computationType) {
             case 'Area': this.result = this.shapeObject.getArea(); break;
             case 'Perimeter': this.result = this.shapeObject.getPerimeter(); break;
-            default: this.result = null;
         }
 
         this.shapeObject = null;
