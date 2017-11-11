@@ -1,7 +1,6 @@
 # Geometric Shapes
 
-Sample Angular application.
-Node `v8.9.0`
+Sample Angular application. Build with Node `v8.9.0`.
 
 # Intructions
 
