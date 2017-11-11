@@ -1,3 +1,15 @@
-<p>
-  shapes-list works!
-</p>
+<div class="description description-computation">Choose computation type:</div>
+
+<md-radio-group class="radio-group" [(ngModel)]="computationType">
+    <md-radio-button class="radio-button" *ngFor="let computationType of computationsTypes" [value]="computationType">
+        {{ computationType }}
+    </md-radio-button>
+</md-radio-group>
+
+<div class="description description-shape">Choose shape:</div>
+
+<md-select placeholder="Shape">
+    <md-option *ngFor="let shape of shapes" [value]="shape" (click)="setSelectedShape(shape)">
+        {{ shape }}
+    </md-option>
+</md-select>

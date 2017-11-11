@@ -9,8 +9,9 @@ const routes: Routes = [{
     path: 'list',
     component: ShapesListComponent
 }, {
-    path: 'details/:id',
-    component: ShapesDetailsComponent
+    path: 'details/:computation/:shape',
+    component: ShapesDetailsComponent,
+    pathMatch: 'full'
 }];
 
 @NgModule({

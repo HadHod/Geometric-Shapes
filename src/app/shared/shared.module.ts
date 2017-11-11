@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { MatToolbarModule, MatButtonModule, MatIconModule } from '@angular/material';
+
+import {
+    MatToolbarModule, MatButtonModule, MatIconModule, MatRadioModule, MatSelectModule
+} from '@angular/material';
 
 const MD_MODULES = [
-    MatToolbarModule, MatButtonModule, MatIconModule
+    MatToolbarModule, MatButtonModule, MatIconModule, MatRadioModule, MatSelectModule
 ];
 
 const MODULES = [
-    MD_MODULES, CommonModule,
+    MD_MODULES, CommonModule, FormsModule, ReactiveFormsModule
 ];
 
 const COMPONENTS = [
