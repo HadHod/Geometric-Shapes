@@ -1,3 +1,25 @@
-<p>
-  shapes-details works!
-</p>
+<div>Type parameters for {{ shape }} shape</div>
+
+<div *ngIf="this.shape === 'Circle'">
+    <md-form-field>
+        <input #circleA mdInput placeholder="radius" type="number" (input)="inputEvent(circleA.value)">
+    </md-form-field>
+</div>
+
+<div *ngIf="this.shape === 'Rectangle'">
+    <md-form-field>
+        <input #squareA mdInput placeholder="a" type="number" (input)="inputEvent(squareA.value, squareB.value)">
+    </md-form-field>
+
+    <md-form-field>
+        <input #squareB mdInput placeholder="b" type="number" (input)="inputEvent(squareA.value, squareB.value)">
+    </md-form-field>
+</div>
+
+<div *ngIf="this.shape === 'Square'">
+    <md-form-field>
+        <input #rectangleA mdInput placeholder="a" type="number" (input)="inputEvent(rectangleA.value)">
+    </md-form-field>
+</div>
+
+<div>{{ computationType }} of {{ shape }} is {{ result ? result : '-' }}</div>

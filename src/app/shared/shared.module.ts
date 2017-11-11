@@ -5,11 +5,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import {
-    MatToolbarModule, MatButtonModule, MatIconModule, MatRadioModule, MatSelectModule
+    MatToolbarModule, MatButtonModule, MatIconModule, MatRadioModule,
+    MatSelectModule, MatInputModule
 } from '@angular/material';
 
 const MD_MODULES = [
-    MatToolbarModule, MatButtonModule, MatIconModule, MatRadioModule, MatSelectModule
+    MatToolbarModule, MatButtonModule, MatIconModule, MatRadioModule,
+    MatSelectModule, MatInputModule
 ];
 
 const MODULES = [
