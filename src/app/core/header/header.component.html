@@ -1,7 +1,9 @@
-<header>
-    <span>Geometric Shapes Toolbar</span>
+<md-toolbar color="primary">
+    <a md-button [routerLink]="'/'">
+        <md-icon class="icon">home</md-icon>
+    </a>
 
-    <a [routerLink]="'/'">Home</a>
-    <a [routerLink]="'/details/132'">Details</a>
-    <a [routerLink]="'/about'">About</a>
-</header>
+    <span class="spacer"></span>
+
+    <a md-button [routerLink]="'/about'">About</a>
+</md-toolbar>
