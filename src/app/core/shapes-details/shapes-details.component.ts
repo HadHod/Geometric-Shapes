@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from "@angular/router";
+import { MdSnackBar } from '@angular/material';
 
 import { IShape, Circle, Rectangle, Square } from '../../shared/models/Shapes';
 
@@ -15,7 +16,8 @@ export class ShapesDetailsComponent implements OnInit {
     public result: number = null;
 
     constructor (
-        private _route: ActivatedRoute
+        private _route: ActivatedRoute,
+        private _snackBar: MdSnackBar
     ) { }
 
     ngOnInit () {
@@ -41,7 +43,11 @@ export class ShapesDetailsComponent implements OnInit {
                 case Square.getName: this.shapeObject = new Square(value1); break;
             }
         } catch (e) {
-            alert(e);
+            if (e.message === 'bad parameter') {
+                this._snackBar.open('Type positive parameter', 'Close', { duration: 2000 });
+            } else {
+                console.log(e);
+            }
         }
 
         if (!this.shapeObject) {
