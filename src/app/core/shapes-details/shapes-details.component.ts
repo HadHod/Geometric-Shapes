@@ -34,10 +34,14 @@ export class ShapesDetailsComponent implements OnInit {
             return;
         }
 
-        switch (this.shape) {
-            case Circle.getName: this.shapeObject = new Circle(value1); break;
-            case Rectangle.getName: this.shapeObject = new Rectangle(value1, value2); break;
-            case Square.getName: this.shapeObject = new Square(value1); break;
+        try {
+            switch (this.shape) {
+                case Circle.getName: this.shapeObject = new Circle(value1); break;
+                case Rectangle.getName: this.shapeObject = new Rectangle(value1, value2); break;
+                case Square.getName: this.shapeObject = new Square(value1); break;
+            }
+        } catch (e) {
+            alert(e);
         }
 
         if (!this.shapeObject) {

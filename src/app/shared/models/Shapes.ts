@@ -1,10 +1,18 @@
+function isGreaterThanZero (n: number) {
+    if (n <= 0) {
+        throw new Error('bad parameter');
+    }
+}
+
 export interface IShape {
     getArea(): number;
     getPerimeter(): number;
 }
 
 export class Circle implements IShape {
-    constructor (private r: number) {}
+    constructor (private r: number) {
+        isGreaterThanZero(r);
+    }
 
     public static getName = 'Circle';
 
@@ -14,7 +22,10 @@ export class Circle implements IShape {
 }
 
 export class Rectangle implements IShape {
-    constructor (private a: number, private b: number) {}
+    constructor (private a: number, private b: number) {
+        isGreaterThanZero(a);
+        isGreaterThanZero(b);
+    }
 
     public static getName = 'Rectangle';
 
@@ -25,6 +36,7 @@ export class Rectangle implements IShape {
 
 export class Square extends Rectangle implements IShape {
     constructor (a: number) {
+        isGreaterThanZero(a);
         super(a, a);
     }
 

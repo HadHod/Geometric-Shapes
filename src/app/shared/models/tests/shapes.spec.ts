@@ -35,4 +35,17 @@ describe('Shapes models', () => {
         expect(square.getArea()).toEqual(81);
         expect(square.getPerimeter()).toEqual(36);
     });
+
+    it('Negative or zero parameter', () => {
+        expect(function() { new Circle(-5) }).toThrow(new Error("bad parameter"));
+        expect(function() { new Circle(0) }).toThrow(new Error("bad parameter"));
+
+        expect(function() { new Rectangle(-4, -3) }).toThrow(new Error("bad parameter"));
+        expect(function() { new Rectangle(-4, 0) }).toThrow(new Error("bad parameter"));
+        expect(function() { new Rectangle(0, -3) }).toThrow(new Error("bad parameter"));
+        expect(function() { new Rectangle(0, 0) }).toThrow(new Error("bad parameter"));
+
+        expect(function() { new Square(-3) }).toThrow(new Error("bad parameter"));
+        expect(function() { new Square(0) }).toThrow(new Error("bad parameter"));
+    });
 });
