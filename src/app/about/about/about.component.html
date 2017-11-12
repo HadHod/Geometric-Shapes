@@ -1,3 +1,18 @@
+<h1>
+    Project created to practice <a href="https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)">SOLID</a>.
+</h1>
+
+<md-list>
+    <h3 md-subheader>Set of five design principles:</h3>
+    <md-list-item *ngFor="let principle of principles">
+        <md-icon md-list-icon>star_border</md-icon>
+        <h4 md-line>{{ principle.name }}</h4>
+        <p md-line> {{ principle.description }}</p>
+    </md-list-item>
+</md-list>
+
 <p>
-    Project created to practice <a href="https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)">SOLID</a> (set of five design principles). Source code can be found at <a href="https://github.com/HadHod/Geometric-Shapes">GitHub</a>.
+    Source code can be found at <a href="https://github.com/HadHod/Geometric-Shapes">GitHub</a>.
 </p>
+
+<img src="/assets/solid.jpg" alt="solid">

@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from "@angular/router";
-import { MdSnackBar } from '@angular/material';
+import { MdSnackBar, OVERLAY_PROVIDERS, ScrollDispatcher } from '@angular/material';
 
 import { IShape, Circle, Rectangle, Square } from '../../shared/models/Shapes';
 
 
 @Component({
     templateUrl: './shapes-details.component.html',
-    styleUrls: ['./shapes-details.component.scss']
+    styleUrls: ['./shapes-details.component.scss'],
+    providers: [MdSnackBar, OVERLAY_PROVIDERS, ScrollDispatcher]
 })
 export class ShapesDetailsComponent implements OnInit {
     public shapeObject: IShape;
@@ -32,7 +33,7 @@ export class ShapesDetailsComponent implements OnInit {
     public inputEvent (value1: number, value2?: number) {
         this.result = null;
 
-        if (!value1) {
+        if (!value1 || (this.shape === Rectangle.getName && !value2)) {
             return;
         }
 
@@ -44,7 +45,7 @@ export class ShapesDetailsComponent implements OnInit {
             }
         } catch (e) {
             if (e.message === 'bad parameter') {
-                this._snackBar.open('Type positive parameter', 'Close', { duration: 2000 });
+                this._snackBar.open('Type positive number parameter', 'Close', { duration: 2000 });
             } else {
                 console.log(e);
             }

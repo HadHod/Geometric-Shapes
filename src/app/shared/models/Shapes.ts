@@ -2,6 +2,10 @@ function isGreaterThanZero (n: number) {
     if (n <= 0) {
         throw new Error('bad parameter');
     }
+
+    if (isNaN(+n)) {
+        throw new Error('bad parameter');
+    }
 }
 
 export interface IShape {

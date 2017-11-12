@@ -6,17 +6,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {
     MatToolbarModule, MatButtonModule, MatIconModule, MatRadioModule,
-    MatSelectModule, MatInputModule, MatSnackBarModule
+    MatSelectModule, MatInputModule, MatSnackBarModule, MatListModule,
+    OVERLAY_PROVIDERS
 } from '@angular/material';
 
 const MD_MODULES = [
     MatToolbarModule, MatButtonModule, MatIconModule, MatRadioModule,
-    MatSelectModule, MatInputModule, MatSnackBarModule
+    MatSelectModule, MatInputModule, MatSnackBarModule, MatListModule
 ];
 
-const MODULES = [
-    MD_MODULES, CommonModule, FormsModule, ReactiveFormsModule
-];
+const MODULES = [MD_MODULES, CommonModule, FormsModule, ReactiveFormsModule];
 
 const COMPONENTS = [];
 
@@ -29,7 +28,7 @@ const GUARDS = [];
 @NgModule({
     imports: [MODULES],
     declarations: [COMPONENTS, DIRECTIVES, PIPES],
-    providers: [GUARDS],
+    providers: [GUARDS, OVERLAY_PROVIDERS],
     exports: [MODULES, COMPONENTS, DIRECTIVES, PIPES],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
