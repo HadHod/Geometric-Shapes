@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SharedModule } from './../shared/shared.module';
@@ -11,6 +11,7 @@ import { AboutComponent } from './about/about.component';
         SharedModule,
         AboutRoutingModule
     ],
-    declarations: [AboutComponent]
+    declarations: [AboutComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AboutModule { }

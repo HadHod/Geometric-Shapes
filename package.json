@@ -6,7 +6,7 @@
         "ng": "ng",
         "start": "ng serve --verbose true --aot true --watch",
         "build": "ng build --verbose true --aot true -prod",
-        "test": "ng test",
+        "test": "ng test --colors --watch",
         "lint": "ng lint",
         "e2e": "ng e2e"
     },

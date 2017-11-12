@@ -12,7 +12,7 @@ export class ShapesDetailsComponent implements OnInit {
     public shapeObject: IShape;
     public computationType: string;
     public shape: string;
-    public result: number;
+    public result: number = null;
 
     constructor (
         private _route: ActivatedRoute

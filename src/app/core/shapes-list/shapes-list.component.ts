@@ -5,7 +5,7 @@ import { Circle, Rectangle, Square } from '../../shared/models/Shapes';
 
 
 type ComputationType = 'Area' | 'Perimeter';
-type Shapes = 'Circle' | 'Rectangle' | 'Square';
+type Shape = 'Circle' | 'Rectangle' | 'Square'; // Circle.getName | Rectangle.getName | Square.getName
 
 @Component({
     templateUrl: './shapes-list.component.html',
@@ -13,10 +13,10 @@ type Shapes = 'Circle' | 'Rectangle' | 'Square';
 })
 export class ShapesListComponent implements OnInit {
     public computationsTypes: ComputationType[] = ['Area', 'Perimeter'];
-    public shapes: string[] = [Circle.getName, Rectangle.getName, Square.getName];
+    public shapes: Shape[] = ['Circle', 'Rectangle', 'Square'];
 
     private _computationType: ComputationType;
-    private _shape: string;
+    private _shape: Shape;
 
     constructor (
         private _router: Router,
@@ -29,7 +29,7 @@ export class ShapesListComponent implements OnInit {
         this.goToShapeDetails();
     }
 
-    public setSelectedShape (value: string) {
+    public setSelectedShape (value: Shape) {
         this._shape = value;
         this.goToShapeDetails();
     }
